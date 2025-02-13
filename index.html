@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anagram - Brute Force</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <button class="toggle-mode" onclick="toggleMode()">🌙 Dark Mode</button>
+    <h1>Cari Anagram</h1>
+    <input type="text" id="input-word" placeholder="Masukkan kata..." autocomplete="off"/>
+    <button onclick="findAnagram()">Cari Anagram</button>
+    <div id="loading-spinner" class="hidden">
+      <div class="spinner"></div>
+      <p>Mencari anagram...</p>
+    </div>
+    <p id="info"></p>
+    <div id="result-word" style="margin-bottom: 1em"></div>
+    <div id="result-mean"></div>
+    <footer>
+      &copy; 2025 <B>KELOMPOK 1</B> | ANALISIS STRATEGI ALGORITMA
+    </footer>  
+
+    <button id="scroll-to-top" title="Kembali ke Atas">↑</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

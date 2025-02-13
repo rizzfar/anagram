@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('darkmode.css');
+
+:root {
+    --button-bg: #007bff;
+    --button-hover: #0056b3;
+    --card-bg: #ffffff;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --footer-bg: rgba(0, 0, 0, 0.8);
+    --text-color: #333;
+    --primary-color: #007bff;
+    --secondary-color: #ff4500;
+    --input-border: #ccc;
+    --input-focus: #007bff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f9fbfc;
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 80px;
+    transition: 200ms;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #222;
+    margin: 60px 0 15px;
+}
+
+input {
+    width: 90%;
+    max-width: 400px;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid var(--input-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: var(--input-focus);
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background: var(--button-bg);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 3px 6px rgba(0, 123, 255, 0.2);
+}
+
+button:hover {
+    background: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 123, 255, 0.3);
+}
+
+.toggle-mode {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    background: var(--button-bg);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-mode:hover {
+    background: var(--button-hover);
+}
+
+#info {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #555;
+}
+
+#result-word {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 10px;
+    justify-items: center;
+}
+
+#result-word a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    background: rgba(0, 123, 255, 0.1);
+    padding: 8px;
+    border-radius: 6px;
+    transition: 0.3s ease-in-out;
+    width: 100%;
+}
+
+#result-word a:hover {
+    color: var(--secondary-color);
+    background: rgba(255, 69, 0, 0.2);
+}
+
+#result-mean {
+    display: none;
+    margin-top: 20px;
+    margin: auto;
+    max-width: 600px;
+    text-align: left;
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--card-shadow);
+    transition: 0.3s ease-in-out;
+}
+
+#result-mean h3 {
+    color: #d9534f;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+#result-mean span {
+    font-size: 1rem;
+    color: #555;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--footer-bg);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
+}
+
+#loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-left-color: #3498db;
+    animation: spin 1s linear infinite;
+}
+
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 860px) {
+    #result-word {
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        justify-content: center;
+    }
+}
+
+#scroll-to-top {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: var(--button-bg);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+
+#scroll-to-top:hover {
+    background-color: #9c4dcc;
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
