@@ -14,7 +14,7 @@ Proyek ini adalah implementasi **pencarian anagram** menggunakan **algoritma per
 ## 🛠️ Instalasi & Penggunaan
 ### **1️⃣ Clone Repository**
 ```sh
-git clone https://github.com/rizzfar/anagram.git
+git clone https://github.com/rizzfar/anagram
 cd anagram
 ```
 ---
@@ -38,7 +38,6 @@ Kata: "kasur"
 ```
 Permutasi yang dihasilkan:
 rakus, kuras, rasuk, rusak, etc.
-Anagram yang valid ditemukan: abc, bac
 ```
 
 ---
