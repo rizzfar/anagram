@@ -1,179 +1,89 @@
+// Kumpulan warna dark mode yang lebih berani & modern
 $dark-mode: (
-    bg-color: #1e2a2e,
-    text-color: #e0f2e9,
-    button-bg: #4caf50,
-    button-hover: #388e3c,
-    card-bg: #263238,
-    card-shadow: rgba(255, 255, 255, 0.1),
-    footer-bg: rgba(30, 42, 46, 0.9),
-    primary-color: #4caf50,
-    secondary-color: #ffa726,
-    input-bg: #37474f,
-    input-border: #4caf50,
-    input-focus: #81c784
+  button-bg: linear-gradient(135deg, #6a00f4, #00d4ff),
+  button-hover: linear-gradient(135deg, #4a00c2, #00aacc),
+  card-bg: rgba(20, 20, 30, 0.85),
+  card-shadow: rgba(0, 255, 255, 0.08),
+  footer-bg: rgba(10, 10, 20, 0.95),
+  text-color: #f0f0f0,
+  primary-color: #00e0ff,
+  secondary-color: #ff6ec7,
+  input-border: #5ce1e6,
+  input-focus: #9a67ea,
+  input-bg: #1a1a2e,
+  bg-color: #0c0c1d
 );
 
+// Dark Mode Styles
 body.dark-mode {
-    @each $key, $value in $dark-mode {
-        --#{$key}: #{$value};
-    }
-    
-    background: var(--bg-color);
+  @each $key, $value in $dark-mode {
+    --#{$key}: #{$value};
+  }
+
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease-in-out;
+
+  h1 {
+    background: linear-gradient(90deg, #00e0ff, #ff6ec7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  input {
+    background-color: var(--input-bg);
+    border-color: var(--input-border);
     color: var(--text-color);
-    text-align: center;
-    padding: 20px;
-    margin-bottom: 80px;
 
-    h1 {
-        font-size: 2rem;
-        font-weight: 600;
-        color: var(--text-color);
-        margin: 60px 0 15px;
+    &::placeholder {
+      color: #ccc;
     }
 
-    input {
-        width: 90%;
-        max-width: 400px;
-        padding: 12px;
-        margin: 10px 0;
-        border: 2px solid var(--input-border);
-        background: var(--input-bg);
-        color: var(--text-color);
-        border-radius: 8px;
-        font-size: 1rem;
-        transition: 0.3s ease-in-out;
+    &:focus {
+      border-color: var(--input-focus);
+      box-shadow: 0 0 12px rgba(154, 103, 234, 0.5);
+    }
+  }
+
+  button, .toggle-mode, #scroll-to-top {
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.25);
+
+    &:hover {
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+    }
+  }
+
+  #result-mean {
+    background: var(--card-bg);
+    box-shadow: 0 6px 25px var(--card-shadow);
+
+    h3 {
+      background: var(--button-bg);
+      color: #fff;
     }
 
-    input:focus {
-        border-color: var(--input-focus);
-        outline: none;
-        box-shadow: 0 0 8px rgba(129, 199, 132, 0.5);
+    span {
+      color: #ccc;
     }
+  }
 
-    button {
-        padding: 12px 20px;
-        font-size: 1rem;
-        font-weight: 500;
-        color: #fff;
-        background: var(--button-bg);
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: 0.3s ease-in-out;
-        box-shadow: 0 3px 6px rgba(76, 175, 80, 0.3);
-    }
+  #result-word a {
+    color: var(--primary-color);
+    background: rgba(0, 224, 255, 0.08);
 
-    button:hover {
-        background: var(--button-hover);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 12px rgba(76, 175, 80, 0.4);
+    &:hover {
+      color: var(--secondary-color);
+      background: rgba(255, 110, 199, 0.1);
+      transform: scale(1.05);
     }
+  }
 
-    .toggle-mode {
-        position: fixed;
-        top: 15px;
-        right: 15px;
-        padding: 8px 16px;
-        font-size: 1rem;
-        background: var(--button-bg);
-        color: #fff;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
+  footer {
+    background: var(--footer-bg);
+    color: #aaa;
+  }
 
-    .toggle-mode:hover {
-        background: var(--button-hover);
-    }
-
-    #info {
-        margin-top: 15px;
-        font-size: 1rem;
-        color: #aaa;
-    }
-
-    #result-word {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        max-width: 500px;
-        margin: 20px auto;
-        padding: 10px;
-        justify-items: center;
-    }
-
-    #result-word a {
-        width: 100%;
-        text-decoration: none;
-        color: var(--text-color);
-        font-weight: 600;
-        background: var(--primary-color);
-        padding: 8px;
-        border-radius: 6px;
-        transition: 0.3s ease-in-out;
-    }
-
-    #result-word a:hover {
-        color: var(--secondary-color);
-        background: rgba(17, 54, 3, 0.2);
-    }
-
-    #result-mean {
-        display: none;
-        margin-top: 20px;
-        margin: auto;
-        max-width: 600px;
-        text-align: left;
-        background: var(--card-bg);
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px var(--card-shadow);
-        transition: 0.3s ease-in-out;
-    }
-
-    #result-mean h3 {
-        color: var(--secondary-color);
-        font-size: 1.2rem;
-        margin-bottom: 5px;
-    }
-
-    #result-mean span {
-        font-size: 1rem;
-        color: #bbb;
-    }
-
-    footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: var(--footer-bg);
-        color: #fff;
-        text-align: center;
-        padding: 20px 0;
-        font-size: 0.9rem;
-        backdrop-filter: blur(5px);
-    }
-
-    #loading-spinner {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 10px;
-    }
-
-    .spinner {
-        border: 4px solid rgba(0, 0, 0, 0.1);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border-left-color: var(--button-bg);
-        animation: spin 1s linear infinite;
-    }
-}
-
-@media screen and (max-width: 760px) {
-    body.dark-mode #result-word {
-        grid-template-columns: 1fr 1fr;
-    }
+  .spinner {
+    border-top-color: #00d4ff;
+  }
 }
